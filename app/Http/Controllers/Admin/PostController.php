@@ -7,6 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -65,6 +66,7 @@ class PostController extends Controller
             'konten' => $validated['konten'],
             'foto' => $fotoPath,
             'tanggal_post' => now(),
+            'user_id' => Auth::id(),
         ]);
 
         Log::info('Post created with foto: ' . $fotoPath);

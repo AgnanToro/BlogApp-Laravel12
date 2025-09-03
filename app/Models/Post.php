@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Post extends Model
 {
-    protected $fillable = ['judul', 'konten', 'tanggal_post', 'foto'];
+    protected $fillable = ['judul', 'konten', 'tanggal_post', 'foto', 'user_id'];
 
     protected $casts = [
         'tanggal_post' => 'datetime',
@@ -15,6 +16,11 @@ class Post extends Model
 
     public function comments(): HasMany
     {
-    return $this->hasMany(Comment::class)->latest();
+        return $this->hasMany(Comment::class)->latest();
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

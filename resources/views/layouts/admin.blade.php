@@ -178,6 +178,12 @@
                     <i class="fas fa-newspaper me-2"></i>Kelola Posts
                 </a>
             </li>
+               <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" 
+                   href="{{ route('admin.users.index') }}">
+                    <i class="fas fa-users me-2"></i>Kelola Users
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('posts.index') }}" target="_blank">
                     <i class="fas fa-external-link-alt me-2"></i>Lihat Website
