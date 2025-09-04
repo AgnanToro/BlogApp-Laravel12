@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lupa Password - Admin BlogSpace</title>
+    <title>Lupa Password - BlogSpace</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="mb-8">
                     <h2 class="text-3xl font-bold text-gray-900 mb-2">Lupa Password</h2>
-                    <p class="text-gray-600">Masukkan email admin Anda untuk menerima link reset password.</p>
+                    <p class="text-gray-600">Masukkan email Anda untuk menerima link reset password.</p>
                 </div>
                 @if (session('status'))
                     <div class="alert alert-success">{{ session('status') }}</div>

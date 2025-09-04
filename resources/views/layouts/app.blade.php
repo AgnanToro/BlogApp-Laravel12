@@ -57,7 +57,7 @@
                 
                 <div class="flex items-center space-x-4">
                     <a href="{{ route('admin.login') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg text-sm font-medium transition-all duration-300 shadow-lg hover:shadow-xl">
-                        <i class="fas fa-user-shield mr-2"></i>Admin Login
+                        <i class="fas fa-user-shield mr-2"></i>Login
                     </a>
                 </div>
             </div>
