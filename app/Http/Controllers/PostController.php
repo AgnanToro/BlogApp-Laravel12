@@ -12,7 +12,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $query = Post::orderBy('tanggal_post', 'desc');
+        $query = Post::with('user')->orderBy('tanggal_post', 'desc');
         $keyword = request('q');
         if ($keyword) {
             $query->where(function($q) use ($keyword) {
@@ -31,7 +31,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post->load('comments');
+        $post->load(['comments', 'user']);
         return view('posts.show', compact('post'));
     }
 }

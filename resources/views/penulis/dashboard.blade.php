@@ -1,6 +1,6 @@
-@extends('layouts.admin')
+@extends('layouts.penulis')
 
-@section('title', 'Dashboard - Admin BlogSpace')
+@section('title', 'Dashboard - Penulis BlogSpace')
 @section('page-title', 'Dashboard')
 
 @section('content')
@@ -33,7 +33,7 @@
                         <h6 class="text-muted mb-1">Total Posts</h6>
                         <h2 class="fw-bold text-primary mb-0">{{ $totalPosts }}</h2>
                         <small class="text-success">
-                            <i class="fas fa-arrow-up me-1"></i>Artikel tersedia
+                            <i class="fas fa-arrow-up me-1"></i>Artikel Anda
                         </small>
                     </div>
                     <div class="col-4 text-end">
@@ -78,13 +78,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3 mb-3">
-                        <a href="{{ route('admin.posts.create') }}" class="btn btn-admin-primary w-100 py-3">
+                        <a href="{{ route('penulis.posts.create') }}" class="btn btn-penulis-primary w-100 py-3">
                             <i class="fas fa-plus-circle fa-2x mb-2"></i>
-                            <div>Buat Post Baru</div>
+                            <div>Tulis Post Baru</div>
                         </a>
                     </div>
                     <div class="col-md-3 mb-3">
-                        <a href="{{ route('admin.posts.index') }}" class="btn btn-outline-primary w-100 py-3">
+                        <a href="{{ route('penulis.posts') }}" class="btn btn-outline-primary w-100 py-3">
                             <i class="fas fa-list fa-2x mb-2"></i>
                             <div>Kelola Posts</div>
                         </a>
@@ -117,7 +117,7 @@
             <div class="card-header bg-transparent border-bottom">
                 <div class="d-flex justify-content-between align-items-center">
                     <h5 class="mb-0 fw-bold">Posts Terbaru</h5>
-                    <a href="{{ route('admin.posts.index') }}" class="btn btn-sm btn-outline-primary">
+                    <a href="{{ route('penulis.posts') }}" class="btn btn-sm btn-outline-primary">
                         Lihat Semua <i class="fas fa-arrow-right ms-1"></i>
                     </a>
                 </div>
@@ -152,11 +152,11 @@
                                         </td>
                                         <td>
                                             <div class="btn-group btn-group-sm" role="group">
-                                                <a href="{{ route('admin.posts.show', $post) }}" class="btn btn-outline-info me-2">
-                                                    <i class="fas fa-eye"></i>
-                                                </a>
-                                                <a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-outline-warning">
+                                                <a href="{{ route('penulis.posts.edit', $post) }}" class="btn btn-outline-warning me-2">
                                                     <i class="fas fa-edit"></i>
+                                                </a>
+                                                <a href="{{ route('posts.show', $post) }}" class="btn btn-outline-success" target="_blank">
+                                                    <i class="fas fa-eye"></i>
                                                 </a>
                                             </div>
                                         </td>
@@ -169,9 +169,9 @@
                     <div class="text-center py-5">
                         <i class="fas fa-newspaper text-muted mb-3" style="font-size: 4rem;"></i>
                         <h5 class="fw-bold">Belum Ada Posts</h5>
-                        <p class="text-muted mb-4">Mulai dengan membuat post pertama Anda.</p>
-                        <a href="{{ route('admin.posts.create') }}" class="btn btn-admin-primary">
-                            <i class="fas fa-plus me-2"></i>Buat Post Pertama
+                        <p class="text-muted mb-4">Mulai dengan menulis post pertama Anda.</p>
+                        <a href="{{ route('penulis.posts.create') }}" class="btn btn-penulis-primary">
+                            <i class="fas fa-plus me-2"></i>Tulis Post Pertama
                         </a>
                     </div>
                 @endif

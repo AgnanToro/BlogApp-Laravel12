@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\PenulisController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\Admin\CommentController as AdminCommentController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 
 // Forgot Password (Admin)
@@ -32,10 +34,23 @@ Route::get('/admin/login', [LoginController::class, 'showLoginForm'])->name('adm
 Route::post('/admin/login', [LoginController::class, 'login'])->name('login');
 Route::post('/admin/logout', [LoginController::class, 'logout'])->name('admin.logout');
 
-// Admin routes (protected by auth and isAdmin middleware)
-//Route::middleware(['auth', 'isAdmin'])->prefix('admin')->name('admin.')->group(function () {
-Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+// Admin routes (protected by auth and admin middleware)
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('posts', AdminPostController::class);
+    Route::resource('users', AdminUserController::class);
     Route::delete('/comments/{comment}', [AdminCommentController::class, 'destroy'])->name('comments.destroy');
+});
+
+// Penulis routes (protected by auth and penulis middleware)
+Route::middleware(['auth', 'penulis'])->prefix('penulis')->name('penulis.')->group(function () {
+    Route::get('/dashboard', [PenulisController::class, 'dashboard'])->name('dashboard');
+    Route::get('/profile', [PenulisController::class, 'profile'])->name('profile');
+    Route::put('/profile', [PenulisController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/posts', [PenulisController::class, 'posts'])->name('posts');
+    Route::get('/posts/create', [PenulisController::class, 'createPost'])->name('posts.create');
+    Route::post('/posts', [PenulisController::class, 'storePost'])->name('posts.store');
+    Route::get('/posts/{post}/edit', [PenulisController::class, 'editPost'])->name('posts.edit');
+    Route::put('/posts/{post}', [PenulisController::class, 'updatePost'])->name('posts.update');
+    Route::delete('/posts/{post}', [PenulisController::class, 'destroyPost'])->name('posts.destroy');
 });

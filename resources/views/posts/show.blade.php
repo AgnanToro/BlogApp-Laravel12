@@ -38,10 +38,15 @@
         
         <!-- Article Footer -->
         <div class="mt-12 pt-8 border-t border-gray-200">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between flex-wrap gap-4">
                 <div class="flex items-center text-gray-600">
                     <i class="fas fa-clock mr-2"></i>
                     <span>Dipublikasikan {{ $post->tanggal_post->setTimezone('Asia/Jakarta')->translatedFormat('d F Y, H:i') }}</span>
+                    @if($post->user)
+                        <span class="mx-3">•</span>
+                        <i class="fas fa-user mr-2"></i>
+                        <span>Oleh <strong>{{ $post->user->name }}</strong></span>
+                    @endif
                 </div>
                 <div class="flex items-center">
                     <span class="text-gray-600">

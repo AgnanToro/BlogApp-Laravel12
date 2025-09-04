@@ -100,10 +100,15 @@
                         <!-- Post Content & Footer -->
                         <div class="p-6 flex-1 flex flex-col">
                             <div class="flex-1 flex flex-col">
-                                <!-- Date -->
+                                <!-- Date & Author -->
                                 <div class="flex items-center text-sm text-gray-500 mb-3">
                                     <i class="fas fa-calendar-alt mr-2 text-blue-500"></i>
                                     <span>{{ $post->tanggal_post->translatedFormat('d F Y') }}</span>
+                                    @if($post->user)
+                                        <span class="mx-2">•</span>
+                                        <i class="fas fa-user mr-1 text-blue-500"></i>
+                                        <span>{{ $post->user->name }}</span>
+                                    @endif
                                 </div>
                                 <!-- Title -->
                                 <h3 class="text-xl font-bold text-gray-900 mb-3 leading-tight hover:text-blue-600 transition-colors">
