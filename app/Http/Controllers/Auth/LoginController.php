@@ -27,7 +27,20 @@ class LoginController extends Controller
         ]);
 
         if (Auth::attempt($request->only('email', 'password'))) {
-            return redirect()->route('admin.dashboard');
+            $user = Auth::user();
+            
+            // Redirect berdasarkan role user
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role === 'penulis') {
+                return redirect()->route('penulis.dashboard');
+            } else {
+                // Jika role tidak dikenali, logout dan redirect ke login
+                Auth::logout();
+                return back()->withErrors([
+                    'email' => 'Role user tidak valid.',
+                ]);
+            }
         }
 
         return back()->withErrors([

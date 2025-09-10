@@ -37,7 +37,7 @@
                 <!-- Login Header -->
                 <div class="mb-8">
                     <h2 class="text-3xl font-bold text-gray-900 mb-2">Selamat Datang Kembali</h2>
-                    <p class="text-gray-600">Silakan masuk ke akun admin Anda</p>
+                    <p class="text-gray-600">Silakan masuk ke akun Anda</p>
                 </div>
 
                 <!-- Notifikasi sukses reset password -->

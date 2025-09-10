@@ -78,6 +78,11 @@
             font-weight: 500;
         }
         
+        .sidebar-nav .nav-link i {
+            width: 20px;
+            text-align: center;
+        }
+        
         .sidebar-nav .nav-link:hover {
             color: #fff;
             background: rgba(59, 130, 246, 0.2);
@@ -161,7 +166,7 @@
             </span>
             <div class="d-flex flex-column align-items-start justify-content-center lh-1">
                 <span class="fw-bold" style="font-size:1.3rem; letter-spacing:1px;">BlogSpace</span>
-                <span class="fw-semibold" style="font-size:1.05rem; letter-spacing:1px;">Admin</span>
+                <span class="fw-semibold" style="font-size:1.05rem; letter-spacing:1px; margin-top:2px;">Admin</span>
             </div>
         </a>
         
@@ -176,6 +181,12 @@
                 <a class="nav-link {{ request()->routeIs('admin.posts.*') ? 'active' : '' }}" 
                    href="{{ route('admin.posts.index') }}">
                     <i class="fas fa-newspaper me-2"></i>Kelola Posts
+                </a>
+            </li>
+               <li class="nav-item">
+                <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" 
+                   href="{{ route('admin.users.index') }}">
+                    <i class="fas fa-users me-2"></i>Kelola Users
                 </a>
             </li>
             <li class="nav-item">

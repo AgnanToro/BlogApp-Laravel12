@@ -33,7 +33,7 @@
 				</div>
 				<div class="mb-8">
 					<h2 class="text-3xl font-bold text-gray-900 mb-2">Reset Password</h2>
-					<p class="text-gray-600">Masukkan password baru untuk akun admin Anda.</p>
+					<p class="text-gray-600">Masukkan password baru untuk akun Anda.</p>
 				</div>
 				@if (session('status'))
 					<div class="alert alert-success">{{ session('status') }}</div>
