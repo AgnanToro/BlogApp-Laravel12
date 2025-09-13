@@ -1,0 +1,1 @@
+<?php /**PATH C:\NGODING\Dafidea - testcase\resources\views/admin/comments/index.blade.php ENDPATH**/ ?>

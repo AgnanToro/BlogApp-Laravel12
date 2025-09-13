@@ -22,7 +22,7 @@ class PostController extends Controller
             });
         }
         $posts = $query->paginate(6)->withQueryString();
-        $totalComments = \App\Models\Comment::count();
+        $totalComments = \App\Models\Comment::approved()->count();
         return view('posts.index', compact('posts', 'totalComments', 'keyword'));
     }
 
@@ -31,7 +31,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $post->load(['comments', 'user']);
+        $post->load(['comments' => function($query) {
+            $query->approved()->orderBy('created_at', 'desc');
+        }, 'user']);
         return view('posts.show', compact('post'));
     }
 }

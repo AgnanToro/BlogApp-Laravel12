@@ -9,10 +9,10 @@ class IsAdmin
 {
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->is_admin) {
+        if (Auth::check() && Auth::user()->role === 'admin') {
             return $next($request);
         }
 
-        abort(403, 'Unauthorized');
+        abort(403, 'Unauthorized access. Admin role required.');
     }
 }
