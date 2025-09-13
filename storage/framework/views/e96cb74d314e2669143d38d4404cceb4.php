@@ -1,14 +1,14 @@
-@extends('layouts.app')
 
-@section('title', $post->judul . ' - BlogSpace')
 
-@section('content')
+<?php $__env->startSection('title', $post->judul . ' - BlogSpace'); ?>
+
+<?php $__env->startSection('content'); ?>
 <!-- Hero Section -->
 <section class="gradient-bg text-white py-12">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center">
             <!-- Article Title -->
-            <h1 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">{{ $post->judul }}</h1>
+            <h1 class="text-3xl md:text-4xl font-bold mb-6 leading-tight"><?php echo e($post->judul); ?></h1>
         </div>
     </div>
 </section>
@@ -18,21 +18,22 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <!-- Article Header Image -->
-        @if($post->foto)
-            <img src="{{ asset('storage/' . $post->foto) }}" alt="{{ $post->judul }}" class="w-full h-64 md:h-96 object-cover object-center rounded-xl mb-8">
-        @else
+        <?php if($post->foto): ?>
+            <img src="<?php echo e(asset('storage/' . $post->foto)); ?>" alt="<?php echo e($post->judul); ?>" class="w-full h-64 md:h-96 object-cover object-center rounded-xl mb-8">
+        <?php else: ?>
             <div class="h-64 md:h-96 bg-gradient-to-r from-blue-400 to-blue-600 rounded-xl mb-8 flex items-center justify-center">
                 <div class="text-center">
                     <i class="fas fa-image text-8xl text-white opacity-50 mb-4"></i>
-                    <p class="text-white text-xl font-semibold">{{ $post->judul }}</p>
+                    <p class="text-white text-xl font-semibold"><?php echo e($post->judul); ?></p>
                 </div>
             </div>
-        @endif
+        <?php endif; ?>
         
         <!-- Article Content -->
         <div class="prose prose-lg max-w-none">
             <div class="text-gray-700 leading-relaxed text-lg">
-                {!! nl2br(e($post->konten)) !!}
+                <?php echo nl2br(e($post->konten)); ?>
+
             </div>
         </div>
         
@@ -41,16 +42,16 @@
             <div class="flex items-center justify-between flex-wrap gap-4">
                 <div class="flex items-center text-gray-600">
                     <i class="fas fa-clock mr-2"></i>
-                    <span>Dipublikasikan {{ $post->tanggal_post->setTimezone('Asia/Jakarta')->translatedFormat('d F Y, H:i') }}</span>
-                    @if($post->user)
+                    <span>Dipublikasikan <?php echo e($post->tanggal_post->setTimezone('Asia/Jakarta')->translatedFormat('d F Y, H:i')); ?></span>
+                    <?php if($post->user): ?>
                         <span class="mx-3">•</span>
                         <i class="fas fa-user mr-2"></i>
-                        <span>Oleh <strong>{{ $post->user->name }}</strong></span>
-                    @endif
+                        <span>Oleh <strong><?php echo e($post->user->name); ?></strong></span>
+                    <?php endif; ?>
                 </div>
                 <div class="flex items-center">
                     <span class="text-gray-600">
-                        <i class="fas fa-comments mr-1"></i>{{ $post->comments->count() }} komentar
+                        <i class="fas fa-comments mr-1"></i><?php echo e($post->comments->count()); ?> komentar
                     </span>
                 </div>
             </div>
@@ -64,13 +65,13 @@
         <div class="bg-white rounded-xl shadow-lg p-8">
             <h2 class="text-3xl font-bold text-gray-800 mb-8">
                 <i class="fas fa-comments text-blue-600 mr-3"></i>
-                Komentar ({{ $post->comments->count() }})
+                Komentar (<?php echo e($post->comments->count()); ?>)
             </h2>
             
             <!-- Vue.js Comment Form -->
             <comment-form 
-                post-id="{{ $post->id }}"
-                csrf-token="{{ csrf_token() }}"
+                post-id="<?php echo e($post->id); ?>"
+                csrf-token="<?php echo e(csrf_token()); ?>"
                 class="mb-8">
                 
                 <!-- Fallback HTML form -->
@@ -79,8 +80,8 @@
                         <i class="fas fa-comment-dots mr-2 text-blue-500"></i>
                         Tinggalkan Komentar
                     </h3>
-                    <form method="POST" action="{{ route('comments.store', $post) }}">
-                        @csrf
+                    <form method="POST" action="<?php echo e(route('comments.store', $post)); ?>">
+                        <?php echo csrf_field(); ?>
                         
                         <div class="mb-4">
                             <label for="nama_komentator" class="block text-sm font-medium text-gray-700 mb-2">
@@ -89,13 +90,27 @@
                             <input type="text" 
                                    id="nama_komentator" 
                                    name="nama_komentator" 
-                                   class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors @error('nama_komentator') border-red-500 @else border-gray-300 @enderror"
-                                   value="{{ old('nama_komentator') }}"
+                                   class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors <?php $__errorArgs = ['nama_komentator'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php else: ?> border-gray-300 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
+                                   value="<?php echo e(old('nama_komentator')); ?>"
                                    placeholder="Masukkan nama Anda"
                                    required>
-                            @error('nama_komentator')
-                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                            <?php $__errorArgs = ['nama_komentator'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         
                         <div class="mb-6">
@@ -105,12 +120,26 @@
                             <textarea id="isi_komentar" 
                                       name="isi_komentar" 
                                       rows="4"
-                                      class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none @error('isi_komentar') border-red-500 @else border-gray-300 @enderror"
+                                      class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none <?php $__errorArgs = ['isi_komentar'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?> border-red-500 <?php else: ?> border-gray-300 <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>"
                                       placeholder="Tulis komentar Anda di sini..."
-                                      required>{{ old('isi_komentar') }}</textarea>
-                            @error('isi_komentar')
-                                <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                                      required><?php echo e(old('isi_komentar')); ?></textarea>
+                            <?php $__errorArgs = ['isi_komentar'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                                <p class="mt-1 text-sm text-red-600"><?php echo e($message); ?></p>
+                            <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
                         </div>
                         
                         <div class="flex justify-end">
@@ -125,9 +154,9 @@
             </comment-form>
             
             <!-- Comments List -->
-            @if($post->comments->where('approved', true)->count() > 0)
+            <?php if($post->comments->where('approved', true)->count() > 0): ?>
                 <div class="space-y-6">
-                    @foreach($post->comments->where('approved', true) as $comment)
+                    <?php $__currentLoopData = $post->comments->where('approved', true); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $comment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <div class="bg-gray-50 p-6 rounded-xl border-l-4 border-blue-500">
                             <div class="flex items-center justify-between mb-3">
                                 <div class="flex items-center">
@@ -135,19 +164,20 @@
                                         <i class="fas fa-user text-white"></i>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold text-gray-800">{{ $comment->nama_komentator }}</h4>
+                                        <h4 class="font-semibold text-gray-800"><?php echo e($comment->nama_komentator); ?></h4>
                                         <p class="text-sm text-gray-500">
                                             <i class="fas fa-clock mr-1"></i>
-                                            {{ $comment->created_at->setTimezone('Asia/Jakarta')->translatedFormat('d F Y, H:i') }}
+                                            <?php echo e($comment->created_at->setTimezone('Asia/Jakarta')->translatedFormat('d F Y, H:i')); ?>
+
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-gray-700 leading-relaxed">{{ $comment->isi_komentar }}</p>
+                            <p class="text-gray-700 leading-relaxed"><?php echo e($comment->isi_komentar); ?></p>
                         </div>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 </div>
-            @else
+            <?php else: ?>
                 <div class="text-center py-12">
                     <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-comments text-3xl text-gray-400"></i>
@@ -155,7 +185,7 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-2">Belum Ada Komentar</h3>
                     <p class="text-gray-600">Jadilah yang pertama memberikan komentar untuk artikel ini!</p>
                 </div>
-            @endif
+            <?php endif; ?>
         </div>
     </div>
 </section>
@@ -163,10 +193,12 @@
 <!-- Navigation Button -->
 <section class="py-8 bg-gray-50">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <a href="{{ url('/') }}" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
+    <a href="<?php echo e(url('/')); ?>" class="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
             Kembali ke Beranda
         </a>
     </div>
 </section>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\NGODING\Dafidea - testcase\resources\views/posts/show.blade.php ENDPATH**/ ?>

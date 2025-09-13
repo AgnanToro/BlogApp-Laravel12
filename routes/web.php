@@ -1,13 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AdminCommentController;
 use App\Http\Controllers\PenulisController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\PostController as AdminPostController;
-use App\Http\Controllers\Admin\CommentController as AdminCommentController;
+use App\Http\Controllers\Admin\CommentController as AdminCommentControllerAdmin;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 
 
@@ -16,9 +18,9 @@ Route::get('/admin/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordCo
 Route::post('/admin/forgot-password', [App\Http\Controllers\Auth\ForgotPasswordController::class, 'sendResetLinkEmail'])->name('admin.password.email');
 
 // Reset Password (untuk link di email)
-Route::get('/admin/reset-password/{token}', function ($token) {
-    return view('auth.reset-password', ['token' => $token, 'email' => request('email')]);
-})->name('password.reset');
+Route::get('/admin/reset-password/{token}', fn($token) =>
+    view('auth.reset-password', ['token' => $token, 'email' => request('email')])
+)->name('password.reset');
 
 // Proses reset password (POST)
 use App\Http\Controllers\Auth\ResetPasswordController;
@@ -39,8 +41,12 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('posts', AdminPostController::class);
     Route::resource('users', AdminUserController::class);
+    Route::get('/comments', [AdminCommentController::class, 'index'])->name('comments.index');
+
+    Route::post('/comments/{comment}/approve', [AdminCommentController::class, 'approve'])->name('comments.approve');
     Route::delete('/comments/{comment}', [AdminCommentController::class, 'destroy'])->name('comments.destroy');
 });
+
 
 // Penulis routes (protected by auth and penulis middleware)
 Route::middleware(['auth', 'penulis'])->prefix('penulis')->name('penulis.')->group(function () {
