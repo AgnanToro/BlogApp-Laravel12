@@ -19,17 +19,18 @@ class CommentController extends Controller
             'post_id' => $post->id,
             'nama_komentator' => $request->nama_komentator,
             'isi_komentar' => $request->isi_komentar,
+            'approved' => false, // Default false - butuh persetujuan admin
         ]);
 
         // Return JSON response for AJAX requests
         if ($request->ajax() || $request->wantsJson()) {
             return response()->json([
                 'success' => true,
-                'message' => 'Komentar berhasil ditambahkan!',
+                'message' => 'Komentar berhasil dikirim dan menunggu persetujuan admin.',
                 'comment' => $comment
             ]);
         }
 
-        return redirect()->route('posts.show', $post)->with('success', 'Komentar berhasil ditambahkan!');
+        return redirect()->route('posts.show', $post)->with('success', 'Komentar berhasil dikirim dan menunggu persetujuan admin.');
     }
 }

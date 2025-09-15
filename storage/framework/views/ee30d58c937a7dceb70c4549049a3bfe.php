@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Admin Panel - BlogSpace')</title>
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <title><?php echo $__env->yieldContent('title', 'Admin Panel - BlogSpace'); ?></title>
     
     <!-- Bootstrap & Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <!-- Custom Styles -->
-    @stack('styles')
+    <?php echo $__env->yieldPushContent('styles'); ?>
     
     <style>
         :root {
@@ -189,10 +189,10 @@
 <body>
   
 <div id="app">
-    @auth
+    <?php if(auth()->guard()->check()): ?>
     <!-- Sidebar -->
     <nav class="admin-sidebar">
-        <a href="{{ route('admin.dashboard') }}" class="sidebar-brand d-flex align-items-center gap-3 p-4" style="display:flex">
+        <a href="<?php echo e(route('admin.dashboard')); ?>" class="sidebar-brand d-flex align-items-center gap-3 p-4" style="display:flex">
             <span class="d-flex align-items-center justify-content-center" style="width:48px; height:48px; background:rgba(255,255,255,0.15); border-radius:12px;">
                 <i class="fas fa-blog" style="font-size:2rem; color:#fff;"></i>
             </span>
@@ -204,37 +204,37 @@
         
         <ul class="nav nav-pills flex-column sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}" 
-                   href="{{ route('admin.dashboard') }}">
+                <a class="nav-link <?php echo e(request()->routeIs('admin.dashboard') ? 'active' : ''); ?>" 
+                   href="<?php echo e(route('admin.dashboard')); ?>">
                     <i class="fas fa-tachometer-alt me-2"></i>Dashboard
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.posts.*') ? 'active' : '' }}" 
-                   href="{{ route('admin.posts.index') }}">
+                <a class="nav-link <?php echo e(request()->routeIs('admin.posts.*') ? 'active' : ''); ?>" 
+                   href="<?php echo e(route('admin.posts.index')); ?>">
                     <i class="fas fa-newspaper me-2"></i>Kelola Posts
                 </a>
             </li>
                <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}" 
-                   href="{{ route('admin.users.index') }}">
+                <a class="nav-link <?php echo e(request()->routeIs('admin.users.*') ? 'active' : ''); ?>" 
+                   href="<?php echo e(route('admin.users.index')); ?>">
                     <i class="fas fa-users me-2"></i>Kelola Users
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('admin.comments.*') ? 'active' : '' }}" 
-                   href="{{ route('admin.comments.index') }}">
+                <a class="nav-link <?php echo e(request()->routeIs('admin.comments.*') ? 'active' : ''); ?>" 
+                   href="<?php echo e(route('admin.comments.index')); ?>">
                     <i class="fas fa-comments me-2"></i>Kelola Komentar
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('posts.index') }}" target="_blank">
+                <a class="nav-link" href="<?php echo e(route('posts.index')); ?>" target="_blank">
                     <i class="fas fa-external-link-alt me-2"></i>Lihat Website
                 </a>
             </li>
             <li class="nav-item mt-4">
-                <form method="POST" action="{{ route('admin.logout') }}">
-                    @csrf
+                <form method="POST" action="<?php echo e(route('admin.logout')); ?>">
+                    <?php echo csrf_field(); ?>
                     <button type="submit" class="nav-link border-0 bg-transparent w-100 text-start">
                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                     </button>
@@ -252,22 +252,23 @@
                     <button class="btn btn-link d-md-none me-3 text-white" type="button" onclick="toggleSidebar()">
                         <i class="fas fa-bars"></i>
                     </button>
-                    <h5 class="mb-0 text-white">@yield('page-title', 'Admin Panel')</h5>
+                    <h5 class="mb-0 text-white"><?php echo $__env->yieldContent('page-title', 'Admin Panel'); ?></h5>
                 </div>
                 <div class="d-flex align-items-center">
-                    <span class="me-3 text-white">Welcome, {{ Auth::user()->name }}</span>
+                    <span class="me-3 text-white">Welcome, <?php echo e(Auth::user()->name); ?></span>
                     <div class="dropdown">
                         <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-user-circle me-2"></i>{{ Auth::user()->name }}
+                            <i class="fas fa-user-circle me-2"></i><?php echo e(Auth::user()->name); ?>
+
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{{ route('posts.index') }}" target="_blank">
+                            <li><a class="dropdown-item" href="<?php echo e(route('posts.index')); ?>" target="_blank">
                                 <i class="fas fa-external-link-alt me-2"></i>Lihat Website
                             </a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li>
-                                <form method="POST" action="{{ route('admin.logout') }}">
-                                    @csrf
+                                <form method="POST" action="<?php echo e(route('admin.logout')); ?>">
+                                    <?php echo csrf_field(); ?>
                                     <button type="submit" class="dropdown-item">
                                         <i class="fas fa-sign-out-alt me-2"></i>Logout
                                     </button>
@@ -281,27 +282,29 @@
         
         <!-- Page Content -->
         <main class="p-4">
-            @if(session('success'))
+            <?php if(session('success')): ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
+                    <i class="fas fa-check-circle me-2"></i><?php echo e(session('success')); ?>
+
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
-            @endif
+            <?php endif; ?>
 
-            @if(session('error'))
+            <?php if(session('error')): ?>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <i class="fas fa-exclamation-circle me-2"></i>{{ session('error') }}
+                    <i class="fas fa-exclamation-circle me-2"></i><?php echo e(session('error')); ?>
+
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
-            @endif
+            <?php endif; ?>
 
-            @yield('content')
+            <?php echo $__env->yieldContent('content'); ?>
         </main>
     </div>
-    @else
+    <?php else: ?>
         <!-- Content for non-authenticated users (login page) -->
-        @yield('content')
-    @endauth
+        <?php echo $__env->yieldContent('content'); ?>
+    <?php endif; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -311,5 +314,6 @@
     </script>
 </div> <!-- End Vue App -->
 </body>
-@stack('scripts')
+<?php echo $__env->yieldPushContent('scripts'); ?>
 </html>
+<?php /**PATH C:\NGODING\Dafidea - testcase\resources\views/layouts/admin.blade.php ENDPATH**/ ?>
