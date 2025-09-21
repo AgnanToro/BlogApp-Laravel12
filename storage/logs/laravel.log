@@ -1,12 +1,12 @@
-[2025-09-20 17:32:34] local.DEBUG: From: BlogSpace <agnanpes1@gmail.com>
+[2025-09-21 03:05:59] local.DEBUG: From: BlogSpace <agnanpes1@gmail.com>
 To: agnankun18@gmail.com
 Subject: Reset Password Notification
 MIME-Version: 1.0
-Date: Sat, 20 Sep 2025 17:32:34 +0000
-Message-ID: <5ef92a6e2d5f02419eb1de416e5268c8@gmail.com>
-Content-Type: multipart/alternative; boundary=swzadRqi
+Date: Sun, 21 Sep 2025 03:05:59 +0000
+Message-ID: <40f6522b79ea0a63dded7e607d77e073@gmail.com>
+Content-Type: multipart/alternative; boundary=S9GusdgB
 
---swzadRqi
+--S9GusdgB
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
@@ -16,7 +16,7 @@ Laravel: http://localhost
 
 You are receiving this email because we received a password reset request for your account.
 
-Reset Password: http://127.0.0.1:8000/api/reset-password/bb29660955217ff9c351b319eac6a145d74c34bc5fa718ddaafbd06e96194bd1?email=agnankun18%40gmail.com
+Reset Password: http://127.0.0.1:8000/api/reset-password/a0db50f29209100f3063c2e5392c0634d8f937ecdc8e40e032185e34446ee422?email=agnankun18%40gmail.com
 
 This password reset link will expire in 60 minutes.
 
@@ -26,11 +26,11 @@ Regards,
 Laravel
 
 If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
-into your web browser: [http://127.0.0.1:8000/api/reset-password/bb29660955217ff9c351b319eac6a145d74c34bc5fa718ddaafbd06e96194bd1?email=agnankun18%40gmail.com](http://127.0.0.1:8000/api/reset-password/bb29660955217ff9c351b319eac6a145d74c34bc5fa718ddaafbd06e96194bd1?email=agnankun18%40gmail.com)
+into your web browser: [http://127.0.0.1:8000/api/reset-password/a0db50f29209100f3063c2e5392c0634d8f937ecdc8e40e032185e34446ee422?email=agnankun18%40gmail.com](http://127.0.0.1:8000/api/reset-password/a0db50f29209100f3063c2e5392c0634d8f937ecdc8e40e032185e34446ee422?email=agnankun18%40gmail.com)
 
 © 2025 Laravel. All rights reserved.
 
---swzadRqi
+--S9GusdgB
 Content-Type: text/html; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
@@ -93,7 +93,7 @@ width: 100% !important;
 <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
 <tr>
 <td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
-<a href="http://127.0.0.1:8000/api/reset-password/bb29660955217ff9c351b319eac6a145d74c34bc5fa718ddaafbd06e96194bd1?email=agnankun18%40gmail.com" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748; word-break: break-all;">Reset Password</a>
+<a href="http://127.0.0.1:8000/api/reset-password/a0db50f29209100f3063c2e5392c0634d8f937ecdc8e40e032185e34446ee422?email=agnankun18%40gmail.com" class="button button-primary" target="_blank" rel="noopener" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; -webkit-text-size-adjust: none; border-radius: 4px; color: #fff; display: inline-block; overflow: hidden; text-decoration: none; background-color: #2d3748; border-bottom: 8px solid #2d3748; border-left: 18px solid #2d3748; border-right: 18px solid #2d3748; border-top: 8px solid #2d3748; word-break: break-all;">Reset Password</a>
 </td>
 </tr>
 </table>
@@ -113,7 +113,7 @@ Laravel</p>
 <tr>
 <td style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative;">
 <p style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; line-height: 1.5em; margin-top: 0; text-align: left; font-size: 14px;">If you're having trouble clicking the "Reset Password" button, copy and paste the URL below
-into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="http://127.0.0.1:8000/api/reset-password/bb29660955217ff9c351b319eac6a145d74c34bc5fa718ddaafbd06e96194bd1?email=agnankun18%40gmail.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3869d4; word-break: break-all;">http://127.0.0.1:8000/api/reset-password/bb29660955217ff9c351b319eac6a145d74c34bc5fa718ddaafbd06e96194bd1?email=agnankun18%40gmail.com</a></span></p>
+into your web browser: <span class="break-all" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; word-break: break-all;"><a href="http://127.0.0.1:8000/api/reset-password/a0db50f29209100f3063c2e5392c0634d8f937ecdc8e40e032185e34446ee422?email=agnankun18%40gmail.com" style="box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; position: relative; color: #3869d4; word-break: break-all;">http://127.0.0.1:8000/api/reset-password/a0db50f29209100f3063c2e5392c0634d8f937ecdc8e40e032185e34446ee422?email=agnankun18%40gmail.com</a></span></p>
 
 </td>
 </tr>
@@ -142,5 +142,5 @@ into your web browser: <span class="break-all" style="box-sizing: border-box; fo
 </table>
 </body>
 </html>
---swzadRqi--
+--S9GusdgB--
   

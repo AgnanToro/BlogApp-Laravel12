@@ -77,44 +77,51 @@
                   <i class="fas fa-comment-dots mr-2 text-blue-500"></i>
                   Tinggalkan Komentar
                 </h3>
-                <form @submit.prevent="submitComment">
-                  <div class="mb-4">
-                    <label for="nama_komentator" class="block text-sm font-medium text-gray-700 mb-2">
-                      Nama Anda
-                    </label>
-                    <input 
-                      type="text" 
-                      id="nama_komentator"
-                      v-model="commentForm.nama_komentator"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
-                      placeholder="Masukkan nama Anda"
-                      required
-                    />
+                <template v-if="authStore.isAuthenticated">
+                  <form @submit.prevent="submitComment">
+                    <div class="mb-4">
+                      <label for="nama_komentator" class="block text-sm font-medium text-gray-700 mb-2">
+                        Nama Anda
+                      </label>
+                      <input 
+                        type="text" 
+                        id="nama_komentator"
+                        v-model="commentForm.nama_komentator"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
+                        placeholder="Masukkan nama Anda"
+                        required
+                      />
+                    </div>
+                    <div class="mb-6">
+                      <label for="isi_komentar" class="block text-sm font-medium text-gray-700 mb-2">
+                        Komentar
+                      </label>
+                      <textarea 
+                        id="isi_komentar"
+                        v-model="commentForm.isi_komentar"
+                        rows="4"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                        placeholder="Tulis komentar Anda di sini..."
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                      <button 
+                        type="submit" 
+                        :disabled="submittingComment"
+                        class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 hover:shadow-lg transition-all duration-200 flex items-center space-x-2 disabled:opacity-50"
+                      >
+                        <i class="fas fa-paper-plane"></i>
+                        <span>{{ submittingComment ? 'Mengirim...' : 'Kirim Komentar' }}</span>
+                      </button>
+                    </div>
+                  </form>
+                </template>
+                <template v-else>
+                  <div class="text-center text-blue-600 font-semibold py-4">
+                    Login dulu untuk bisa menulis komentar
                   </div>
-                  <div class="mb-6">
-                    <label for="isi_komentar" class="block text-sm font-medium text-gray-700 mb-2">
-                      Komentar
-                    </label>
-                    <textarea 
-                      id="isi_komentar"
-                      v-model="commentForm.isi_komentar"
-                      rows="4"
-                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
-                      placeholder="Tulis komentar Anda di sini..."
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="flex justify-end">
-                    <button 
-                      type="submit" 
-                      :disabled="submittingComment"
-                      class="px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 hover:shadow-lg transition-all duration-200 flex items-center space-x-2 disabled:opacity-50"
-                    >
-                      <i class="fas fa-paper-plane"></i>
-                      <span>{{ submittingComment ? 'Mengirim...' : 'Kirim Komentar' }}</span>
-                    </button>
-                  </div>
-                </form>
+                </template>
               </div>
             </div>
             <!-- Comments List -->
