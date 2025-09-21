@@ -1,0 +1,67 @@
+/* Admin Layout Styles - Override untuk sidebar biru */
+.admin-sidebar {
+  background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important;
+  color: white !important;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admin-sidebar .sidebar-brand {
+  color: white !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.admin-sidebar .sidebar-brand:hover {
+  color: white !important;
+  text-decoration: none;
+}
+
+.admin-sidebar .sidebar-brand span {
+  color: white !important;
+}
+
+.admin-sidebar .nav-link {
+  color: #e0e7ef !important;
+  background: transparent !important;
+}
+
+.admin-sidebar .nav-link:hover {
+  color: white !important;
+  background: rgba(59, 130, 246, 0.2) !important;
+  border-left: 3px solid white !important;
+  text-decoration: none;
+}
+
+.admin-sidebar .nav-link.active {
+  color: white !important;
+  background: rgba(59, 130, 246, 0.4) !important;
+  border-left: 3px solid white !important;
+}
+
+.admin-sidebar .nav-link i {
+  color: inherit !important;
+}
+
+.admin-sidebar button.nav-link {
+  color: #e0e7ef !important;
+  background: transparent !important;
+}
+
+.admin-sidebar button.nav-link:hover {
+  color: white !important;
+  background: rgba(59, 130, 246, 0.2) !important;
+  border-left: 3px solid white !important;
+}
+
+/* Header biru yang matching */
+.admin-header {
+  background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%) !important;
+  color: white !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .admin-sidebar {
+    background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%) !important;
+  }
+}
