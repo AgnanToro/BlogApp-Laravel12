@@ -21,10 +21,6 @@ class Comment extends Model
         'approved_at' => 'datetime',
     ];
 
-    protected $attributes = [
-        'approved' => false, // Default value: butuh persetujuan admin
-    ];
-
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);

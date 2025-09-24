@@ -1,17 +1,27 @@
 
 import './bootstrap';
 
-import { createApp } from 'vue';
-import CommentApproval from './components/CommentApproval.vue';
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import router from './router'
+import { useAuthStore } from './stores/auth'
+
+// Import main App component
+import App from './App.vue'
 
 // Create Vue app
-const app = createApp({});
+const app = createApp(App)
 
-// Register components
-app.component('comment-approval', CommentApproval);
+// Use Pinia for state management
+const pinia = createPinia()
+app.use(pinia)
 
-// Mount the app if element exists
-const appElement = document.getElementById('app');
-if (appElement) {
-    app.mount('#app');
-}
+// Use Vue Router
+app.use(router)
+
+// Initialize auth store
+const authStore = useAuthStore()
+authStore.initialize()
+
+// Mount the app
+app.mount('#app')
