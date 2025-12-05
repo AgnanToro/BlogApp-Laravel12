@@ -9,6 +9,7 @@ Berikut Anggota kelompoknya:
 2. Sheyra Dewangga - 32602300051
 3. Rizki Ardiansyah - 32602300049
 4. Aditya Noor Wicaksono - 32602300071
+5. Steepen Istiawan - 32602300072
  
 
 ```
