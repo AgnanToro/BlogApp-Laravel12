@@ -8,7 +8,6 @@ Berikut Anggota kelompoknya:
 1. Agnan Toro - 3260230069
 2. Sheyra Dewangga - 32602300051
 3. Rizki Ardiansyah - 32602300049
-4. Aditya Noor Wicaksono - 32602300071 
  
 
 ```
