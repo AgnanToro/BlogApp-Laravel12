@@ -23,4 +23,6 @@ Berikut Anggota kelompoknya:
    Nama branch: features/rizkiardnsyh
 4. Penambahan branch dilakukan oleh: Aditya Noor Wicaksono
    Nama branch: features/adityanrw
+5. Penambahan branch dilakukan oleh: Steepen Istiawan
+   Nama branch: features/steepen
 ```
