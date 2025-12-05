@@ -10,3 +10,9 @@ Berikut Anggota kelompoknya:
 3. Rizki Ardiansyah - 32602300049
 
 ```
+## 2. Penambahan Branch
+```bash
+1. Penambahan branch dilakukan oleh: Agnan Toro
+   Nama branch: features/agnantoro
+
+```
