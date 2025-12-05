@@ -14,4 +14,6 @@ Berikut Anggota kelompoknya:
 ```bash
 1. Penambahan branch dilakukan oleh: Agnan Toro
    Nama branch: features/agnantoro
+2. Penambahan branch dilakukan oleh: Sheyra Dewangga
+   Nama branch: features/sheydewa
 ```
