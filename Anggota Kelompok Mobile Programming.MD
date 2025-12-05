@@ -21,4 +21,6 @@ Berikut Anggota kelompoknya:
    Nama branch: features/sheydewa
 3. Penambahan branch dilakukan oleh: Rizki Ardiansyah
    Nama branch: features/rizkiardnsyh
+4. Penambahan branch dilakukan oleh: Aditya Noor Wicaksono
+   Nama branch: features/adityanrw
 ```
