@@ -16,4 +16,6 @@ Berikut Anggota kelompoknya:
    Nama branch: features/agnantoro
 2. Penambahan branch dilakukan oleh: Sheyra Dewangga
    Nama branch: features/sheydewa
+3. Penambahan branch dilakukan oleh: Rizki Ardiansyah
+   Nama branch: features/rizkiardnsyh
 ```
