@@ -1,19 +1,24 @@
-# Tugas Mobile Programming 
+# Tugas Mobile Programming
+
 Berikut Anggota kelompoknya:
 
 ---
 
 ## 1. Anggota Kelompok
+
 ```bash
 1. Agnan Toro - 3260230069
 2. Sheyra Dewangga - 32602300051
 3. Rizki Ardiansyah - 32602300049
 4. Aditya Noor Wicaksono - 32602300071
 5. Steepen Istiawan - 32602300072
- 
+6. Yusuf Ahmad 32602300045
+
 
 ```
+
 ## 2. Penambahan Branch
+
 ```bash
 1. Penambahan branch dilakukan oleh: Agnan Toro
    Nama branch: features/agnantoro
@@ -25,4 +30,6 @@ Berikut Anggota kelompoknya:
    Nama branch: features/adityanrw
 5. Penambahan branch dilakukan oleh: Steepen Istiawan
    Nama branch: features/steepen
+5. Penambahan branch dilakukan oleh: Yusuf Ahmad
+   Nama branch: features/Yus-Ops
 ```
