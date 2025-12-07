@@ -12,7 +12,7 @@ Berikut Anggota kelompoknya:
 3. Rizki Ardiansyah - 32602300049
 4. Aditya Noor Wicaksono - 32602300071
 5. Steepen Istiawan - 32602300072
-6. Yusuf Ahmad 32602300045
+6. yusuf ahmad 32602300045
 
 
 ```
@@ -30,6 +30,6 @@ Berikut Anggota kelompoknya:
    Nama branch: features/adityanrw
 5. Penambahan branch dilakukan oleh: Steepen Istiawan
    Nama branch: features/steepen
-5. Penambahan branch dilakukan oleh: Yusuf Ahmad
+5. Penambahan branch dilakukan oleh: yusuf ahmad
    Nama branch: features/Yus-Ops
 ```
